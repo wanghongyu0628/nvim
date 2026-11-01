@@ -6,3 +6,17 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+if vim.g.vscode then
+  -- These default groups assume a native-Neovim UI and misbehave under vscode-neovim
+  vim.api.nvim_del_augroup_by_name("lazyvim_checktime")
+  vim.api.nvim_del_augroup_by_name("lazyvim_highlight_yank")
+  vim.api.nvim_del_augroup_by_name("lazyvim_resize_splits")
+  vim.api.nvim_del_augroup_by_name("lazyvim_last_loc")
+  vim.api.nvim_del_augroup_by_name("lazyvim_close_with_q")
+  vim.api.nvim_del_augroup_by_name("lazyvim_man_unlisted")
+  vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+  vim.api.nvim_del_augroup_by_name("lazyvim_json_conceal")
+  vim.api.nvim_del_augroup_by_name("lazyvim_auto_create_dir")
+  return
+end
